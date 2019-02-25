@@ -1,14 +1,55 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
+      <!-- bouton de menu sur la page home à l'extreme gauche-->
+    <ion-buttons start>
+      <button ion-button menuToggle left>
+        <ion-icon name="menu"> </ion-icon>
+      </button>
+    </ion-buttons > 
+    <!-- fin bouton-->
     <ion-title>
-      Ionic Blank
+      Black Market
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <button (click)="showDetails(article)"  ion-item *ngFor="let article of articles" >
+      <ion-thumbnail item-left>
+        <img [src]="article.picture[0]">
+      </ion-thumbnail>
+      <h2>{{article.title}}</h2>
+      <p>{{article.description}}</p>
+      <p>{{article.price | currency}}</p>
+      <p>
+      <span *ngIf="article.averageStar >=1">
+      <ion-icon class="iconeyellow" name="star"></ion-icon>
+    </span>
+      <span *ngIf="article.averageStar >=2">
+      <ion-icon class="iconeyellow" name="star"></ion-icon>
+    </span>
+      <span *ngIf="article.averageStar >=3">
+      <ion-icon class="iconeyellow" name="star"></ion-icon>
+    </span>
+      <span *ngIf="article.averageStar >=4" >
+      <ion-icon class="iconeyellow" name="star"></ion-icon>
+    </span>
+      <span *ngIf="article.averageStar >=5">
+      <ion-icon class="iconeyellow" name="star"></ion-icon>
+    </span>
+    </p>
+    </button>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+ <ion-row>
+    <ion-col offset-1 col-10>
+      <button ion-button round large >
+        <ion-icon name="camera"></ion-icon>&nbsp;
+        Vendre vos produits
+      </button>
+    </ion-col>
+ </ion-row>
+</ion-footer>
