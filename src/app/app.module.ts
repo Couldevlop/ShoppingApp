@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import{ DetailsPageModule} from "../pages/details/details.module";
+import { IonicStorageModule} from '@ionic/storage';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import{ DetailsPageModule} from "../pages/details/details.module";
   imports: [
     BrowserModule,
     DetailsPageModule,
-      IonicModule.forRoot(MyApp)
+    IonicStorageModule.forRoot(),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
